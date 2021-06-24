@@ -3,10 +3,15 @@ $(document).ready(function(){
     let $battery = $(".battery-body");
     let $msgContainer = $(".battery-msg");
     let $statusContainer = $(".battery-status");
+    let chargingInterval;
 
     navigator.getBattery().then((battery) => {
       updateChargingState();
       updateBatteryLevel();
+
+      function getBatteryLevel() {
+        return (battery.level * 100).toFixed();
+      }
 
       function updateChargingState() {
         if (battery.charging) {
@@ -14,16 +19,30 @@ $(document).ready(function(){
           $msgContainer.html("Sur secteur<br>Charge en cours...");
           $statusContainer.find(".charging span")
             .text("Oui").css("color", "green");
+
+          let level = Number(getBatteryLevel());
+          chargingInterval = setInterval(() => {
+            if (level >= 100) {
+              level = Number(getBatteryLevel());
+            } else if (level >= 90) {
+              level = 100;
+            }
+            $battery.find(".battery-charge-level").css({
+              width: `calc(${level}% + 1px)`
+            });
+            level = level + 10;
+          }, 1000);
         } else {
           $battery.removeClass("is-charging");
           $msgContainer.html("Non branchée<br>Sur batteries");
           $statusContainer.find(".charging span")
             .text("Non").css("color", "orange");
+          clearInterval(chargingInterval);
         }
       }
 
       function updateBatteryLevel() {
-        let level = (battery.level * 100).toFixed();
+        let level = getBatteryLevel();
         let width = `calc(${level}% + 1px)`;
         $statusContainer.find(".level span").text(`${level}%`);
 
