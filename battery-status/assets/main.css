@@ -1,0 +1,76 @@
+body {
+  font-size: 19px;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+main {
+  max-width: 600px;
+  margin: auto;
+}
+h2 {
+  text-align: center;
+}
+
+.battery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  overflow: auto;
+}
+.battery-body {
+  width: 90%;
+  min-width: 200px;
+  max-width: 300px;
+  height: 100px;
+  position: relative;
+  background: #f1f1f1;
+  border-radius: 20px;
+  border: 5px solid #555555;
+}
+.battery-body::after {
+  content: "";
+  width: 20px;
+  height: 43.5px;
+  background: #555555;
+  display: block;
+  position: absolute;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  right: -20px;
+  top: 27.5px;
+}
+.battery-body.is-charging::before {
+  content: "⚡";
+  font-size: 50px;
+  position: absolute;
+  left: calc(50% - 20px);
+  top: 15px;
+  z-index: 1; /* optional */
+}
+.battery-body[data-type="low"] {
+  background-color: #ff000025;
+}
+.battery-body[data-type="full"] {
+  background-color: #00800025;
+}
+.battery-body[data-type="middle"] {
+  background-color: #55555525;
+}
+.battery-charge-level {
+  height: 100%;
+  margin-left: -1px;
+  border-radius: 15px;
+}
+.battery-msg {
+  font-weight: bold;
+  display: block;
+  font-size: 25px;
+  text-align: center;
+}
+ul.battery-status {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
