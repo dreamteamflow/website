@@ -34,10 +34,11 @@ $(document).ready(function(){
           }, 1000);
         } else {
           $battery.removeClass("is-charging");
-          $msgContainer.html("Non branchée<br>Sur batteries");
+          $msgContainer.html("Non branchée<br>Sur batterie");
           $statusContainer.find(".charging span")
             .text("Non").css("color", "orange");
           clearInterval(chargingInterval);
+          updateBatteryLevel();
         }
       }
 
