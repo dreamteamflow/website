@@ -1,6 +1,14 @@
 body, html {
   background-color: #eee;
 }
+ul > li {
+  padding: 0 !important;
+}
+ul > li > a {
+  display: block;
+  height: 100%;
+  padding: 8px 16px;
+}
 ul > li > a::before {
   content: ":: ";
 }
