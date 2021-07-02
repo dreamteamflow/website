@@ -5,22 +5,41 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etat de la batterie</title>
+  <meta name="description" content="Suivi de l'état de la batterie.">
   <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="https://css.bruxelles.dev/jdb?v=latest&c=bases">
 </head>
 <body>
-  <main>
-    <h2>Etat de la batterie</h2>
+  <main class="max">
+    <div class="h3 jdb-padding jdb-center">
+      <a href="/">Accueil</a> / Etat de la batterie
+    </div>
     <div class="battery-container">
-      <div class="battery-body" data-type="middle">
+      <div class="battery-body full" data-type="middle">
         <div class="battery-charge-level"></div>
       </div>
     </div>
-    <div class="battery-msg"></div>
-    <ul class="battery-status">
+    <div class="battery-msg jdb-margin-bottom"></div>
+    <ul class="jdb-ul jdb-round-lg jdb-border battery-status">
+      <li>
+        Type d'affichage :
+        <div>
+          <input class="jdb-radio" type="radio" name="display-type" id="d1" value="full" checked>
+          <label class="jdb-label" for="d1">Affichage 1 (full)</label>
+        </div>
+        <div>
+          <input class="jdb-radio" type="radio" name="display-type" id="d2" value="bars">
+          <label class="jdb-label" for="d2">Affichage 2 (bars)</label>
+        </div>
+      </li>
       <li class="charging">En charge : <span>NA</span></li>
       <li class="level">Niveau de la batterie : <span>NA</span></li>
     </ul>
   </main>
+  <footer class="max">
+    <hr class="jdb-hr">
+    <p rel="copyright" class="jdb-center">Copyright © <span class="current-year"></span> Dream team.</p>
+  </footer>
   <script src="https://jd.bruxelles.dev/jquery.js?v=3.6.0"></script>
   <script src="assets/app.js"></script>
 </body>
