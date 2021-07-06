@@ -19,6 +19,23 @@ main {
   padding: 8px 16px;
   display: flex;
 }
+.big-square .item svg {
+  display: none;
+}
+.big-square .item.active svg {
+  display: inline;
+}
+.big-square .item.ringing svg {
+  animation: fadeIn 1s ease-in-out 0.5s infinite;
+  fill: orange;
+}
+.big-square .item.stopped svg {
+  opacity: 1;
+  fill: red;
+}
+.big-square .item.answered svg {
+  fill: green;
+}
 
 .big-square .item .ring {
   width: 40px;
@@ -28,21 +45,27 @@ main {
   display: inline-block;
   position: relative;
 }
-.big-square .item .ring:hover {
-  background-color : #999;
-}
-.big-square .item .name {
-  background-color: #999;
+.big-square .item .user {
+  background-image: linear-gradient(45deg, #99999924 60%, transparent 100%);
   display: inline-block;
   width: calc(100% - (35px + 40px));
   padding: 8px;
   margin-left: 15px;
   border-radius: 8px;
+  border-left: 2px solid #444;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 20px;
   position: relative;;
+}
+.big-square .item .user svg {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  float: right;
 }
 .big-square .item .ring::before {
   content: "";
@@ -54,4 +77,25 @@ main {
   width: 15.5px;
   height: 5px;
   z-index: 13;
+}
+
+/* COLORS */
+.yellow {
+  background-color: yellow;
+  color: black;
+}
+.light-blue {
+  background-color: lightblue;
+  color: black;
+}
+.blue {
+  background-color: #5582aa;
+  color: black;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+  0%   { opacity: 1; }
 }
