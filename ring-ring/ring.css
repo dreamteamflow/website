@@ -34,12 +34,13 @@ main {
   fill: red;
 }
 .big-square .item.answered svg {
-  fill: green;
+  fill: rgb(90, 192, 90);
 }
 
 .big-square .item .ring {
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
   border-radius: 50px;
   border: 6px double #444;
   display: inline-block;
