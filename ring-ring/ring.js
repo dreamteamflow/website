@@ -9,6 +9,29 @@ let sounds = {
 sounds.ring.loop = true;
 sounds.ring.muted = false;
 
+function readText(text) {
+  // if the feature is supported by the browser.
+  if (SpeechSynthesisUtterance && "speechSynthesis" in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  } else {
+    console.log("La syncthèse vocale n'est pas prise en charge par ce navigateur.");
+  }
+}
+
+function pickUp() {
+  stopSound("ring");
+  $(".big-square .item.active.ringing")
+    .removeClass("ringing")
+    .addClass("answered").delay(500).queue(function(){
+      readText("Vous pouvez entrer.");
+      let $this = $(this);
+      setTimeout(() => {
+        $this.removeClass(["active", "answered"]).dequeue();
+      }, 2000);
+    });
+}
+
 function hangUp(element) {
   stopSound("ring");
   $(element)
@@ -18,7 +41,7 @@ function hangUp(element) {
     });
 }
 
-function pickUp(element) {
+function ring(element) {
   // Stop all active and ringing calls.
   $(".big-square .item.active").each((index, item) => {
     if ($(item).hasClass("ringing")) hangUp(item);
@@ -55,11 +78,16 @@ $(".big-square .item").each((index, item) => {
   }).click(function(){
     // If ringing has not started.
     if (!$(item).hasClass("ringing")) {
-      pickUp(item);
+      ring(item);
     } else
     // If the bell is ringing.
     if ($(item).hasClass("ringing")) {
       hangUp(item);
     }
   });
+});
+
+$(window).keydown(function(event) {
+  if (event.keyCode === 32) pickUp(); // Space key
+  else console.log(event.keyCode);
 });
