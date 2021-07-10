@@ -9,15 +9,12 @@ let readNameOnPickUp = true;
 let ringTimeout;
 
 let sounds = {
-  ring: new Audio("audios/ring-ring.mp3"),
-  // hangUp: new Audio("audios/hangup.mp3")
+  ring: new Audio("audios/ring-ring.mp3")
 };
 
 // Default audio settings.
 sounds.ring.loop = true;
 sounds.ring.muted = false;
-// sounds.hangUp.loop = false;
-// sounds.hangUp.muted = false;
 
 /**
  * Have the browser read the given text
@@ -62,10 +59,8 @@ function pickUp() {
         }
         return "Vous pouvez entrer.";
       }.call(this), () => {
-        // Disable the answer button.
-        $(".answer-button").attr("disabled", isRinging);
         $this.removeClass(["active", "answered"]).dequeue();
-        isRinging = !isRinging;
+        isRinging = false;
       });
     });
 }
@@ -76,6 +71,8 @@ function pickUp() {
  * the element to mark as ringing.
  */
 function hangUp(element = ".big-square .item.active") {
+  // Cancel the speech synthesis.
+  window.speechSynthesis.cancel();
   isRinging = false;
   stopSound("ring");
   $(element)
@@ -84,6 +81,7 @@ function hangUp(element = ".big-square .item.active") {
       $(this).removeClass(["active", "stopped"]).dequeue();
     });
 
+  // Disable the answer button.
   $(".answer-button").attr("disabled", true);
 }
 
@@ -93,10 +91,7 @@ function hangUp(element = ".big-square .item.active") {
  * the element to mark as ringing.
  */
 function ring(element) {
-  // Stop all active and ringing calls.
-  $(".big-square .item.active").each((index, item) => {
-    if ($(item).hasClass("ringing")) hangUp(item);
-  });
+  hangUp(); // Stop the active call.
 
   // Clear the previous timeout if there is one.
   clearTimeout(ringTimeout);
