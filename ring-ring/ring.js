@@ -62,10 +62,10 @@ function pickUp() {
         }
         return "Vous pouvez entrer.";
       }.call(this), () => {
-        isRinging = !isRinging;
         // Disable the answer button.
         $(".answer-button").attr("disabled", isRinging);
         $this.removeClass(["active", "answered"]).dequeue();
+        isRinging = !isRinging;
       });
     });
 }
