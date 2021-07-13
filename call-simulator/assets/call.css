@@ -1,0 +1,44 @@
+body {
+  background-color: aqua;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.main-app {
+  background-color: #222;
+  max-width: 350px;
+  height: 100vh; /* 100% height of the window */
+  margin: auto;
+}
+
+.header {
+  padding: 12px 8px;
+}
+.search-container {
+  color: grey;
+  background-color: #555;
+  border-radius: 8px;
+  padding: 4px;
+}
+.search-container > div {
+  display: inline-block;
+  padding: 8px;
+}
+.search-container .search-input {
+  width: calc(100% - 110px);
+}
+.search-container input,
+.search-container input::placeholder,
+.search-container i.fas {
+  color: #b3b3b3;
+}
+.search-container .search-input input {
+  background-color: transparent;
+  max-width: 240px;
+  font-size: 16px;
+  border: none;
+}
+.search-container .search-input input:focus {
+  outline: none;
+}
