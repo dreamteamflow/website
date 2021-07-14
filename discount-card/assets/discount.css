@@ -1,0 +1,87 @@
+button {
+  color: #fff !important;
+  background-color: #2196F3 !important;
+  font-weight: 500;
+}
+
+.h3, button {
+  font-family: 'Righteous', cursive !important;
+}
+.max {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.card {
+  margin: auto;
+  color: #000;
+  min-width: 350px;
+  max-width: 350px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 6px;
+  background: #fafa11;
+  height: 500px;
+}
+.card .section-1 {
+  border: 20px solid #000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-family: 'Righteous', cursive;
+  padding: 5px;
+  /* clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); */
+}
+.card .section-1 .x {
+  margin-top: 20px;
+  margin-bottom: -20px;;
+  margin-left: 10px;
+  position: relative;
+}
+.card .section-1 .x::before {
+  content: "%";
+  font-family: "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+  position: absolute;
+  font-size: 100px;
+  right: 15px;
+  top: -10px;
+}
+.card .section-1 .x::after {
+  content: "OFF!";
+  position: absolute;
+  font-size: 50px;
+  right: 5px;
+  top: 80px;
+}
+.card .section-1 .percent {
+  font-size: 150px;
+  line-height: 150px;
+}
+.card .section-2 {
+  font-family: 'Gloria Hallelujah', cursive;
+  text-align: center;
+}
+.card .section-2 .old-price {
+  font-size: 50px;
+}
+.card .section-2 .price {
+  position: relative;
+  text-align: left;
+  margin-left: 100px;
+}
+.card .section-2 .price span:first-child {
+  margin-left: -56px;
+}
+.card .section-2 .price span:last-child {
+  top: 15px;
+}
+.card .section-2 .price span:first-child,
+.card .section-2 .price span:last-child {
+  font-size: 80px;
+  line-height: 80px;
+  position: absolute;
+}
+.card .section-2 .x {
+  font-size: 160px;
+  line-height: 160px;
+  letter-spacing: 5px;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount card</title>
+  <link rel="preconnect" href="https://css.bruxelles.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Righteous&display=swap">
+  <link rel="stylesheet" href="https://css.bruxelles.dev/jdb?v=1.1.0&c=bases">
+  <link rel="stylesheet" href="assets/discount.css">
+</head>
+<body>
+  <header class="jdb-container">
+    <div class="h3 jdb-center">
+      <a href="/">Accueil</a>&nbsp;/ Discount card
+    </div>
+  </header>
+  <hr class="jdb-hr max">
+  <main>
+    <div class="card jdb-unselectable">
+      <div class="section-1">
+        <div class="x">UPTO</div>
+        <span class="percent">80</span>
+      </div>
+      <div class="section-2">
+        <div class="old-price">
+          <del>€ 64.99</del>
+        </div>
+        <div class="price">
+          <span>€</span>
+          <span class="x">16</span>
+          <span>.99</span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="jdb-padding-24"></div>
+  <footer class="jdb-container max">
+    <div class="jdb-section jdb-center">
+      <button class="jdb-btn jdb-round toggle-image" data-image="image-card">
+        Aficher / masquer l'image originale
+      </button>
+    </div>
+    <div class="jdb-section image-card" style="display:none">
+      <img class="jdb-image jdb-round-xl jdb-animate-bottom"
+        src="assets/pic-original-card.jpg" alt="Photo de la carte originale">
+    </div>
+  </footer>
+  <script src="assets/discount.js"></script>
+</body>
+</html>
