@@ -17,10 +17,42 @@
 
 // Wait until the document (DOM) is fully loaded.
 $(document).ready(function() {
+  const DEFAULT_IMAGE_URL = "assets/images/default-profil.png";
+
+  /**
+   * Returns an icon element for the given call type.
+   * @param {string} type The call type (e.g.: in, out or missed).
+   * @returns the Font Awesome icon element.
+   */
+  function getCallTypeIcon(type) {
+    switch (type) {
+      case "in": return '<i class="fas fa-phone"></i>';
+      case "out": return '<i class="fas fa-phone-alt"></i>';
+      case "missed": return '<i class="fas fa-phone-slash"></i>';
+    }
+  }
+
   // Load the history data...
   $.getJSON("data/history.json").done(data => {
     $.each(data, (index, item) => {
-      //
+      $("<div>").addClass("history-item").append(
+        $("<img>", {
+          class: "call-image",
+          src: (item.imageUrl || DEFAULT_IMAGE_URL),
+          alt: `Photo de profil de ${item.name || "inconnu.e"}`
+        })
+      ).append(
+        $("<div>").addClass("call-name").text(() => {
+          // Get the caller name or its phone number.
+          if (item.name !== "") return item.name;
+          return item.phone;
+        })
+      ).append(
+        $("<div>").addClass(`call-more-infos ${item.type || "missed"}`)
+          .append($("<span>", { class: "call-type" }).append(getCallTypeIcon(item.type)))
+          .append($("<span>", { class: "call-location" }).append(` · ${item.location} · `))
+          .append($("<span>", { class: "call-date" }).append(getDate(item.date)))
+        ).appendTo(".history-section");
     });
   }).fail(error => {
     //

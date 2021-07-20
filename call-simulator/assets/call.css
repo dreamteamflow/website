@@ -1,4 +1,5 @@
 body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   background-color: aqua;
   padding: 0;
   margin: 0;
@@ -9,7 +10,8 @@ body {
   background-color: #222;
   max-width: 360px;
   min-width: 250px;
-  height: 100vh; /* 100% height of the window */
+  min-height: 100vh; /* 100% height of the window */
+  height: 100%;
   margin: auto;
 }
 
@@ -27,7 +29,7 @@ body {
   color: grey;
   background-color: #555;
   border-radius: 8px;
-  padding: 4px;
+  padding: 4px 10px;
 }
 .search-container > div {
   display: inline-block;
@@ -53,4 +55,30 @@ body {
 }
 .search-container .search-input input:focus {
   outline: none;
+}
+
+.history-section {
+  padding-bottom: 20px;
+}
+.history-item {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  color: #ccc;
+}
+.history-item .call-image {
+  width: 42px;
+  height: 42px;
+  float: left;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.history-item .call-more-infos {
+  margin-top: 3px;
+  font-size: 15px;
+  color: #888;
+}
+.history-item .call-more-infos.missed {
+  color: rgb(160, 70, 70);
 }
