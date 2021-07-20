@@ -32,8 +32,8 @@ button {
   /* clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); */
 }
 .card .section-1 .x {
-  margin-top: 20px;
-  margin-bottom: -20px;;
+  margin-top: 15px;
+  margin-bottom: -15px;
   margin-left: 10px;
   position: relative;
 }
