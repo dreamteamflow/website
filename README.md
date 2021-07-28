@@ -5,5 +5,11 @@
 This is the source of the official website of Dream team. All works and projects will be stored in this repository, and will be accessible via the website.
 
 ## Links
+
 - [Website](https://dt.bruxelles.dev/)
 - [Resource/assets](https://assets.dt.bruxelles.dev/)
+
+
+## Code of conduct
+
+Bugs should be reported through the [issue tracker](https://github.com/dreamteamflow/website/issues). We aim to be an inclusive, welcoming community. To make that explicit, we have a [code of conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) ([French version](https://www.contributor-covenant.org/fr/version/2/0/code_of_conduct/)) that applies to communication around our projects.
