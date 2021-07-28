@@ -18,6 +18,7 @@
 // Wait until the document (DOM) is fully loaded.
 $(document).ready(function() {
   const DEFAULT_IMAGE_URL = "assets/images/default-profil.png";
+  const TODAY = new Date("2021-07-13");
 
   /**
    * Returns an icon element for the given call type.
@@ -32,27 +33,56 @@ $(document).ready(function() {
     }
   }
 
+  function createCallItem(itemData) {
+    $("<div>").addClass("history-item").append(
+      $("<img>", {
+        draggable: false,
+        class: "call-image",
+        src: (itemData.imageUrl || DEFAULT_IMAGE_URL),
+        alt: `Photo de profil de ${itemData.name || "inconnu.e"}`
+      })
+    ).append(
+      $("<div>").addClass("call-name").text(() => {
+        // Get the caller name or its phone number.
+        if (itemData.name !== "") return itemData.name;
+        return itemData.phone;
+      })
+    ).append(
+      $("<div>").addClass(`call-more-infos ${itemData.type || "missed"}`)
+        .append($("<span>", { class: "call-type" }).append(getCallTypeIcon(itemData.type)))
+        .append($("<span>", { class: "call-location" }).append(` · ${itemData.location} · `))
+        .append($("<span>", { class: "call-date" }).append(getDate(itemData.date)))
+    ).appendTo(".history-section");
+  }
+
+  function createSection(sectionName) {
+    $("<div>").addClass("section-divider")
+      .text(sectionName).appendTo(".history-section");
+  }
+
   // Load the history data...
   $.getJSON("data/history.json").done(data => {
+    let todayIsOk = false;
+    let yesterdayIsOk = false;
+    let olderIsOk = false;
+    let date, _isToday, _isYesterday
+
     $.each(data, (index, item) => {
-      $("<div>").addClass("history-item").append(
-        $("<img>", {
-          class: "call-image",
-          src: (item.imageUrl || DEFAULT_IMAGE_URL),
-          alt: `Photo de profil de ${item.name || "inconnu.e"}`
-        })
-      ).append(
-        $("<div>").addClass("call-name").text(() => {
-          // Get the caller name or its phone number.
-          if (item.name !== "") return item.name;
-          return item.phone;
-        })
-      ).append(
-        $("<div>").addClass(`call-more-infos ${item.type || "missed"}`)
-          .append($("<span>", { class: "call-type" }).append(getCallTypeIcon(item.type)))
-          .append($("<span>", { class: "call-location" }).append(` · ${item.location} · `))
-          .append($("<span>", { class: "call-date" }).append(getDate(item.date)))
-        ).appendTo(".history-section");
+      date = new Date(item.date);
+      _isToday = isToday(TODAY, date);
+      _isYesterday = isYesterday(TODAY, date);
+
+      if (_isToday && !todayIsOk) {
+        createSection("Aujourd'hui");
+        todayIsOk = true;
+      } else if (_isYesterday && !yesterdayIsOk) {
+        createSection("Hier");
+        yesterdayIsOk = true;
+      } else if (!_isToday && !_isYesterday && !olderIsOk) {
+        createSection("Plus anciens");
+        olderIsOk = true;
+      }
+      createCallItem(item);
     });
   }).fail(error => {
     //

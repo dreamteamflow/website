@@ -24,3 +24,15 @@ function getDate(fullDate) {
   let monthName = monthNames[date.getMonth()];
   return `${date.getDate()} ${monthName.substring(0, 4)}.`;
 }
+
+function isToday(date, callDate) {
+  return date.getFullYear() === callDate.getFullYear() &&
+    date.getMonth() === callDate.getMonth() &&
+    date.getDate() === callDate.getDate();
+}
+
+function isYesterday(date, callDate) {
+  return date.getFullYear() === callDate.getFullYear() &&
+    date.getMonth() === callDate.getMonth() &&
+    date.getDate() - 1 === callDate.getDate();
+}

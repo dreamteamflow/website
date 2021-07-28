@@ -82,3 +82,11 @@ body {
 .history-item .call-more-infos.missed {
   color: rgb(160, 70, 70);
 }
+
+.section-divider {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+}
