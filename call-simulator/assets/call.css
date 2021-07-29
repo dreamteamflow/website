@@ -92,6 +92,15 @@ body {
   color: rgb(160, 70, 70);
 }
 
+.history-item .call-location {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100px;
+}
+
+.search-result-count,
 .section-divider {
   font-size: 14px;
   color: #b3b3b3;
