@@ -99,3 +99,6 @@ body {
   margin-bottom: 5px;
   padding-left: 15px;
 }
+.section-divider {
+  text-transform: uppercase;
+}
