@@ -96,5 +96,32 @@ $(document).ready(function() {
   // Input section transition on focus.
   $(".search-input input")
     .focus(() => { $(".header").addClass("input-focused"); })
-    .focusout(() => { $(".header").removeClass("input-focused"); });
+    .focusout(() => { $(".header").removeClass("input-focused"); })
+    .keyup(function(event) {
+      event.preventDefault();
+      let valueToSearch = $(this).val().toLowerCase();
+
+      if (valueToSearch === "") {
+        $(".search-result-count").empty().slideUp();
+        $(".history-section").removeClass("searching");
+      } else {
+        $(".search-result-count").slideDown();
+        $(".history-section").addClass("searching");
+      }
+
+      $(".history-section .history-item").filter(function(){
+        let textOfItem = $(this).text().toLowerCase();
+        $(this).toggle(textOfItem.indexOf(valueToSearch) > -1);
+      });
+
+      let resultCount = $(".history-section .history-item:visible").length;
+      if (resultCount === 0) {
+        $(".search-result-count").text("Aucun contact trouvé");
+      } else {
+        $(".search-result-count").text(() => {
+          if (resultCount > 1) return `${resultCount} résultats trouvés`;
+          return `${resultCount} résultat trouvé`;
+        });
+      }
+    });
 });

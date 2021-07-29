@@ -66,6 +66,9 @@ body {
 .history-section {
   padding-bottom: 20px;
 }
+.history-section.searching .section-divider {
+  display: none;
+}
 .history-item {
   padding-left: 12px;
   padding-right: 12px;
