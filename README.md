@@ -6,10 +6,10 @@ This is the source of the official website of Dream team. All works and projects
 
 ## Demo
 
-- [État de la batterie](https://dt.bruxelles.dev/)
-- [Sonnette](https://dt.bruxelles.dev/)
-- [Discount card](https://dt.bruxelles.dev/)
-- [Call simulator](https://dt.bruxelles.dev/)
+- [État de la batterie](https://dt.bruxelles.dev/battery-status)
+- [Sonnette](https://dt.bruxelles.dev/ring-ring)
+- [Discount card](https://dt.bruxelles.dev/discount-card)
+- [Call simulator](https://dt.bruxelles.dev/call-simulator)
 
 ## Links
 
