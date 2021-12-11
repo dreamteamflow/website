@@ -4,11 +4,17 @@
 
 This is the source of the official website of Dream team. All works and projects will be stored in this repository, and will be accessible via the website.
 
+## Demo
+
+- [État de la batterie](https://dt.bruxelles.dev/)
+- [Sonnette](https://dt.bruxelles.dev/)
+- [Discount card](https://dt.bruxelles.dev/)
+- [Call simulator](https://dt.bruxelles.dev/)
+
 ## Links
 
 - [Website](https://dt.bruxelles.dev/)
 - [Resource/assets](https://assets.dt.bruxelles.dev/)
-
 
 ## Code of conduct
 
