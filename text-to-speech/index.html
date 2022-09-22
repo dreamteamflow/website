@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synthèse vocale</title>
+  <meta name="description" content="Synthèse vocale">
+  <link rel="stylesheet" href="https://css.bruxelles.dev/jdb?v=1.1.0&c=all">
+</head>
+<body>
+  <main class="jdb-margin-auto" style="max-width:700px">
+    <div class="h3 jdb-padding jdb-center">
+      <a href="/">Accueil</a> / Synthèse vocale
+    </div>
+
+    <div class="jdb-container jdb-light-gray jdb-padding-16">
+      <div class="jdb-section">
+        <label for="speech-text" class="jdb-label jdb-margin-4 jdb-show-block">Insérez votre texte:</label>
+        <textarea class="jdb-input jdb-focusable jdb-border jdb-round-lg" name="speech-text" id="speech-text"></textarea>
+      </div>
+      <div class="jdb-section">
+        <label for="speech-voice" class="jdb-label jdb-margin-4 jdb-show-block">Sélectionnez une voix:</label>
+        <select class="jdb-select jdb-focusable jdb-border jdb-round-lg" name="speech-voice" id="speech-voice">
+          <option value="Aucune langue disponible" id="no-voice">
+            Aucune langue disponible
+          </option>
+        </select>
+      </div>
+      <button class="jdb-btn jdb-ripple jdb-blue jdb-round-lg jdb-card-2" id="speech-submit">
+        Synthèse vocale
+      </button>
+    </div>
+
+  </main>
+  <footer class="max">
+    <p rel="copyright" class="jdb-center">Copyright © <span class="current-year"></span> Dream team.</p>
+  </footer>
+  <!-- <script src="https://jd.bruxelles.dev/jquery.js?v=3.6.0"></script> -->
+  <script src="/assets/all-pages.js"></script>
+  <script src="tt_speech.js"></script>
+</body>
+</html>
