@@ -34,7 +34,7 @@ sounds.ring.loop = true;
 sounds.ring.muted = false;
 
 /**
- * Have the browser read the given text
+ * Make the browser read the given text
  * using the Speech Synthesis technologie.
  * @param {string} text the text to read.
  * @param {Function} [callback] the function that handle once the speech finished.
@@ -49,7 +49,7 @@ function readText(text, callback) {
     };
     window.speechSynthesis.speak(utterance);
   } else {
-    console.log("La syncthèse vocale n'est pas prise en charge par ce navigateur.");
+    console.log("La synthèse vocale n'est pas prise en charge par ce navigateur.");
   }
 }
 
