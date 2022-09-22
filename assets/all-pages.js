@@ -14,8 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * Return the first element that matches the given selector.
+ * @param {string} selector Element selector
+ * @returns {Element}
+ */
+const elt = (selector) => document.querySelector(selector);
+
+/**
+ * Return all elements that match the given selector.
+ * @param {string} selector Elements selector
+ * @returns {Element[]}
+ */
+const elts = (selector) => document.querySelectorAll(selector);
+
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".current-year").forEach(el => {
+  elts(".current-year").forEach(el => {
     el.textContent = (new Date()).getFullYear();
   });
 });
