@@ -1,0 +1,8 @@
+###########################
+# MAIN REDIRECTIONS
+###########################
+[[redirects]]
+  from = "/favicon.ico"
+  to = "https://jd.bruxelles.dev/favicon.ico"
+  status = 301
+  force = true
