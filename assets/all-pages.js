@@ -29,6 +29,28 @@ const elt = (selector) => document.querySelector(selector);
  */
 const elts = (selector) => document.querySelectorAll(selector);
 
+/**
+ * Return a random number between min and max (both included).
+ * @param {number} min The minimum value
+ * @param {number} max The maximum value
+ * @returns
+ */
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+/**
+ * Removes the given event from the given element.
+ * @param {HTMLElement} elem The element to add the event to.
+ * @param {string} type The event type.
+ * @param {Function} handler The function to call when the event is triggered.
+ */
+const removeEvent = (elem, type, handler) => {
+  if (elem.detachEvent) {
+    elem.detachEvent(`on${type}`, handler);
+  } else {
+    elem.removeEventListener(type, handler);
+  }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   elts(".current-year").forEach(el => {
     el.textContent = (new Date()).getFullYear();
