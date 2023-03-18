@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 100% de la hauteur de l'écran */
+  background-color: white;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  background: #1d1d1d;
+  box-shadow: 0 3px 12px rgba(44, 40, 40, 0.062), 0 5px 12px rgba(0, 0, 0, 0.34);
+  border-radius: 200px;
+  max-width: 80%;
+  width: 320px;
+  margin: auto;
+  padding: 20px 50px;
+  text-align: center;
+}
+
+#counter {
+  color: red;
+  text-shadow: 1px 2px rgba(208, 8, 65, 0.866);
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 45px;
+  font-weight: bold;
+  font-family: Changa, sans-serif;
+}
+
+.counter-square {
+  background-color: #2d2d2d;
+  box-shadow: inset 2px 2px 4px 0 #000000;
+  border-radius: 8px;
+  max-width: 200px;
+  margin: 16px auto;
+}
+
+.btn-container button {
+  background-color: #222;
+  padding: 8px 16px;
+  margin: 8px 4px;
+  color: #f1f1f1;
+  font-family: fantasy;
+  font-size: 17px;
+  border: 1px solid rgb(33, 33, 33);
+  border-radius: 50px;
+  user-select: none;
+  cursor: pointer;
+  box-shadow : 0 1px 2px rgba(58, 56, 56, 0.49),
+               0 2px 5px rgba(0, 0, 0, 0.36);
+}
+
+.btn-container button:active {
+  top: 1.5px;
+  position: relative;
+  box-shadow : 0 0px 4px rgba(0, 0, 0, 0.49),
+               0 0px 4px rgba(0, 0, 0, 0.44);
+}
