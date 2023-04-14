@@ -28,6 +28,8 @@ function updateListOfVoices() {
     option.value = voice.name;
     option.text = `${voice.name} / ${voice.lang}`;
     voiceList.add(option);
+
+    if (voice.default) option.setAttribute("selected", "selected");
   }
 }
 
