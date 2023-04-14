@@ -21,6 +21,7 @@ const speechBtn = elt("#speech-submit");
 let isSpeaking = true;
 
 function updateListOfVoices() {
+  let defaultSelected = false;
   const voices = window.speechSynthesis.getVoices();
   if (voices.length > 0) elt("#no-voice").remove();
   for (let voice of voices) {
@@ -29,7 +30,12 @@ function updateListOfVoices() {
     option.text = `${voice.name} / ${voice.lang}`;
     voiceList.add(option);
 
-    if (voice.default) option.setAttribute("selected", "selected");
+    if (!defaultSelected) {
+      if (voice.default || voice.lang.includes("fr_FR")) {
+        option.setAttribute("selected", "selected");
+        defaultSelected = true;
+      }
+    }
   }
 }
 
