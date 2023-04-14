@@ -18,6 +18,10 @@ const textArea = elt("#speech-text");
 const voiceList = elt("#speech-voice");
 const speechBtn = elt("#speech-submit");
 
+let option = document.createElement("option");
+option.text = "Sélectionner une voix";
+voiceList.add(option);
+
 let isSpeaking = true;
 
 function updateListOfVoices() {
@@ -25,7 +29,7 @@ function updateListOfVoices() {
   const voices = window.speechSynthesis.getVoices();
   if (voices.length > 0) elt("#no-voice").remove();
   for (let voice of voices) {
-    let option = document.createElement("option");
+    option = document.createElement("option");
     option.value = voice.name;
     option.text = `${voice.name} / ${voice.lang}`;
     voiceList.add(option);
