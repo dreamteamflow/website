@@ -4,21 +4,31 @@
 <head>
   <base href="/compteur/">
   <title>Compteur</title>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="./main.css">
   <link rel="stylesheet" href="https://css.bruxelles.dev/jdb?v=1.1.0&c=all">
   <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <main>
-    <div class="counter-square">
-    <div id="counter"></div>
+  <header class="max">
+    <div class="h3 jdb-padding jdb-center">
+      <a href="/">Accueil</a> / Compteur
     </div>
-    <div class="btn-container">
-      <button id="decrement">-</button>
-      <button id="reset">RESET</button>
-      <button id="increment">+</button>
+  </header>
+  <hr class="jdb-hr max">
+  <main class="max">
+    <div class="jdb-responsive">
+      <div class="counter-container">
+        <div class="counter-square">
+        <div id="counter"></div>
+        </div>
+        <div class="btn-container">
+          <button id="decrement">-</button>
+          <button id="reset">RESET</button>
+          <button id="increment">+</button>
+        </div>
+      </div>
     </div>
   </main>
   <script src="./app.js"></script>
