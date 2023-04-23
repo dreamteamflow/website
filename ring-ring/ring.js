@@ -59,6 +59,7 @@ function pickUp() {
   // Start by clearing the existig timeout.
   clearTimeout(ringTimeout);
   stopSound("ring");
+  stopVibration();
 
   $(".big-square .item.active.ringing")
     .removeClass("ringing")
@@ -91,6 +92,7 @@ function hangUp(element = ".big-square .item.active") {
   window.speechSynthesis.cancel();
   isRinging = false;
   stopSound("ring");
+  stopVibration();
   $(element)
     .removeClass("ringing")
     .addClass("stopped").delay(1e3).queue(function(){
@@ -116,9 +118,25 @@ function ring(element) {
   $(element).addClass(["active", "ringing"]);
   $(".answer-button").attr("disabled", false);
 
+  if ("vibrate" in navigator) {
+    // Vibrate 1 second, pause 0.5 second,
+    // vibrate 0.2 second, pause 0.2 second,
+    // vibrate 0.5 second, pause 1 second.
+    let vibrationPattern = [1000, 500, 200, 200, 500, 3000];
+    navigator.vibrate(Array(5).fill(vibrationPattern).flat());
+  }
+
   startSound("ring");
   isRinging = true;
   ringTimeout = setTimeout(hangUp, 10000);
+}
+
+/**
+ * Stop the vibration.
+ */
+function stopVibration() {
+  if ("vibrate" in navigator)
+    navigator.vibrate(0);
 }
 
 /**
