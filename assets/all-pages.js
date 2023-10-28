@@ -29,6 +29,22 @@ const elt = (selector) => document.querySelector(selector);
 const elts = (selector) => document.querySelectorAll(selector);
 
 /**
+ * Add the given event to the given element.
+ * @param {string} name  The name of the element to create.
+ * @param {object} attrs The attributes to set on the element.
+ * @param  {...HTMLElement} children The children to append to the element.
+ * @returns {HTMLElement}
+ */
+function eltCreate(name, attrs, ...children) {
+  let dom = document.createElement(name);
+  for (let attr of Object.keys(attrs)) {
+    dom.setAttribute(attr, attrs[attr]);
+  }
+  for (let child of children) dom.appendChild(child);
+  return dom;
+}
+
+/**
  * Return a random number between min and max (both included).
  * @param {number} min The minimum value
  * @param {number} max The maximum value
